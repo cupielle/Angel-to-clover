@@ -512,11 +512,7 @@ animation:clickPop .8s ease-out forwards;
 
 }
 
-.shake{
-
-animation:shake .45s ease;
-
-}
+.shake{animation:shake .45s ease}
 
 @keyframes shake{
 
@@ -532,11 +528,7 @@ animation:shake .45s ease;
 
 }
 
-.bounce{
-
-animation:bounce .5s ease;
-
-}
+.bounce{animation:bounce .5s ease}
 
 @keyframes bounce{
 
@@ -640,11 +632,7 @@ gap:7px;
 
 }
 
-.memory-photos.double{
-
-grid-template-columns:1fr 1fr;
-
-}
+.memory-photos.double{grid-template-columns:1fr 1fr}
 
 .memory-photos img{
 
@@ -946,11 +934,7 @@ transform:rotate(1.5deg);
 
 }
 
-.scrapbook-tab:nth-child(odd){
-
-transform:rotate(-1deg);
-
-}
+.scrapbook-tab:nth-child(odd){transform:rotate(-1deg)}
 
 .scrapbook-tab:hover{
 
@@ -960,11 +944,7 @@ box-shadow:0 10px 18px #b98da533;
 
 }
 
-.scrapbook-tab:active{
-
-transform:scale(.94);
-
-}
+.scrapbook-tab:active{transform:scale(.94)}
 
 .scrapbook-tab span{
 
@@ -1148,11 +1128,7 @@ transition:transform .5s;
 
 }
 
-.scrapbook-item:hover .scrapbook-item-visual img{
-
-transform:scale(1.1);
-
-}
+.scrapbook-item:hover .scrapbook-item-visual img{transform:scale(1.1)}
 
 .scrapbook-item h4{
 
@@ -1444,11 +1420,7 @@ transition:transform .35s;
 
 }
 
-.envelope:hover{
-
-transform:translateY(-5px) rotate(-1deg);
-
-}
+.envelope:hover{transform:translateY(-5px) rotate(-1deg)}
 
 .envelope-back{
 
@@ -1748,6 +1720,196 @@ transition:.3s;
 
 .letter-close:hover{transform:scale(1.05)}
 
+/* NEW: VOICE MEMORIES */
+
+.voice-memories{
+
+margin:35px auto 8px;
+
+padding:22px 15px;
+
+background:linear-gradient(145deg,#fff8fb,#f7f0fc);
+
+border:1px dashed #e2c5d9;
+
+border-radius:17px;
+
+max-width:490px;
+
+}
+
+.voice-heading{
+
+font-family:'DM Serif Display',serif;
+
+font-size:23px;
+
+font-weight:400;
+
+color:#ad83a5;
+
+text-align:center;
+
+margin-bottom:7px;
+
+}
+
+.voice-subtitle{
+
+font-family:'Caveat',cursive;
+
+font-size:18px;
+
+color:#b18ba8;
+
+text-align:center;
+
+margin-bottom:21px;
+
+}
+
+.voice-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,minmax(0,1fr));
+
+gap:18px;
+
+}
+
+.voice-card{
+
+min-width:0;
+
+background:#fffdfd;
+
+border:1px solid #efdae7;
+
+border-radius:9px;
+
+padding:10px 9px 14px;
+
+box-shadow:2px 4px 12px #b98da522;
+
+cursor:pointer;
+
+transition:transform .3s,box-shadow .3s;
+
+}
+
+.voice-card:nth-child(1){transform:rotate(-2deg)}
+
+.voice-card:nth-child(2){transform:rotate(2deg)}
+
+.voice-card:hover{
+
+transform:translateY(-5px) rotate(0);
+
+box-shadow:0 9px 18px #b98da533;
+
+}
+
+.voice-card.playing{
+
+border-color:#d4a6c6;
+
+background:#fff5fa;
+
+box-shadow:0 0 0 3px #f3e2ed,0 7px 16px #b98da522;
+
+}
+
+.voice-image{
+
+width:100%;
+
+height:145px;
+
+display:block;
+
+object-fit:contain;
+
+background:#fff8fb;
+
+border:4px solid white;
+
+border-radius:5px;
+
+}
+
+.voice-card-title{
+
+font-family:'DM Serif Display',serif;
+
+font-size:16px;
+
+font-weight:400;
+
+text-align:center;
+
+color:#9b7298;
+
+margin:12px 0 5px;
+
+}
+
+.voice-card-description{
+
+font-size:10px;
+
+color:#ad91a8;
+
+text-align:center;
+
+line-height:1.6;
+
+}
+
+.voice-play-label{
+
+display:block;
+
+margin:11px auto 0;
+
+padding:7px 9px;
+
+border-radius:18px;
+
+background:#f7e7f0;
+
+color:#98738f;
+
+font-size:10px;
+
+font-weight:700;
+
+text-align:center;
+
+}
+
+.voice-card.playing .voice-play-label{
+
+background:#ecd6e7;
+
+color:#895f80;
+
+}
+
+.voice-note{
+
+font-family:'Caveat',cursive;
+
+font-size:16px;
+
+color:#b18ba8;
+
+text-align:center;
+
+margin-top:19px;
+
+}
+
 /* FOOTER */
 
 footer{
@@ -1801,6 +1963,14 @@ nav a{padding:8px 10px;font-size:10px}
 .envelope{height:180px}
 
 .letter-full{font-size:19px;padding:20px 15px}
+
+.voice-memories{padding:17px 10px}
+
+.voice-grid{gap:12px}
+
+.voice-image{height:115px}
+
+.voice-card-title{font-size:14px}
 
 }
 
@@ -2490,6 +2660,96 @@ Close the letter ♡
 
 </div>
 
+<!-- NEW: VOICE MEMORIES -->
+
+<div class="voice-memories">
+
+<h3 class="voice-heading">♡ Little sounds from Angel ♡</h3>
+
+<p class="voice-subtitle">
+
+A few kisses and three little words, just for you.
+
+</p>
+
+<div class="voice-grid">
+
+<button class="voice-card" id="kiss-card" type="button" onclick="playLoveAudio('kiss')">
+
+<img
+
+class="voice-image"
+
+src="files/IMG_9386.png"
+
+alt="A kiss emoji"
+
+loading="lazy"
+
+>
+
+<h4 class="voice-card-title">Little kisses 💋</h4>
+
+<p class="voice-card-description">
+
+A little collection of kisses for my Clover.
+
+</p>
+
+<span class="voice-play-label" id="kiss-label">♡ Play my kisses</span>
+
+</button>
+
+<button class="voice-card" id="confession-card" type="button" onclick="playLoveAudio('confession')">
+
+<img
+
+class="voice-image"
+
+src="files/IMG_9387.png"
+
+alt="A shy cat"
+
+loading="lazy"
+
+>
+
+<h4 class="voice-card-title">A little confession 🐱</h4>
+
+<p class="voice-card-description">
+
+Three little words I want you to hear.
+
+</p>
+
+<span class="voice-play-label" id="confession-label">♡ Hear my voice</span>
+
+</button>
+
+</div>
+
+<p class="voice-note" id="voice-status">
+
+tap a little picture to hear something ♡
+
+</p>
+
+<!-- AUDIO FILES: ALL STORED IN THE files FOLDER -->
+
+<audio id="kiss-audio" preload="none">
+
+<source src="files/kisses%20to%20my%20girlfriend.m4a" type="audio/mp4">
+
+</audio>
+
+<audio id="confession-audio" preload="none">
+
+<source src="files/confession.m4a" type="audio/mp4">
+
+</audio>
+
+</div>
+
 </div>
 
 </section>
@@ -2821,6 +3081,144 @@ if(e.key==="Enter"||e.key===" "){
 e.preventDefault();
 
 toggleEnvelope();
+
+}
+
+});
+
+/* NEW: VOICE RECORDINGS */
+
+const kissAudio=document.getElementById("kiss-audio");
+
+const confessionAudio=document.getElementById("confession-audio");
+
+const kissCard=document.getElementById("kiss-card");
+
+const confessionCard=document.getElementById("confession-card");
+
+const kissLabel=document.getElementById("kiss-label");
+
+const confessionLabel=document.getElementById("confession-label");
+
+const voiceStatus=document.getElementById("voice-status");
+
+function resetVoiceCards(){
+
+kissCard.classList.remove("playing");
+
+confessionCard.classList.remove("playing");
+
+kissLabel.textContent="♡ Play my kisses";
+
+confessionLabel.textContent="♡ Hear my voice";
+
+}
+
+function playLoveAudio(type){
+
+const selectedAudio=type==="kiss"?kissAudio:confessionAudio;
+
+const otherAudio=type==="kiss"?confessionAudio:kissAudio;
+
+const selectedCard=type==="kiss"?kissCard:confessionCard;
+
+const wasPlaying=!selectedAudio.paused;
+
+otherAudio.pause();
+
+otherAudio.currentTime=0;
+
+if(wasPlaying){
+
+selectedAudio.pause();
+
+selectedAudio.currentTime=0;
+
+resetVoiceCards();
+
+voiceStatus.textContent="paused with love ♡";
+
+return;
+
+}
+
+kissAudio.pause();
+
+confessionAudio.pause();
+
+kissAudio.currentTime=0;
+
+confessionAudio.currentTime=0;
+
+resetVoiceCards();
+
+selectedCard.classList.add("playing");
+
+if(type==="kiss"){
+
+kissLabel.textContent="♫ Playing my kisses...";
+
+voiceStatus.textContent="sending you lots of kisses! 💋";
+
+}else{
+
+confessionLabel.textContent="♫ Playing my voice...";
+
+voiceStatus.textContent="I love you, my Clover ♡";
+
+}
+
+selectedAudio.play().catch(error=>{
+
+resetVoiceCards();
+
+voiceStatus.textContent="Couldn't play the recording. Please try again ♡";
+
+console.error("Audio playback error:",error);
+
+});
+
+}
+
+/* RESET WHEN A RECORDING ENDS */
+
+kissAudio.addEventListener("ended",()=>{
+
+resetVoiceCards();
+
+voiceStatus.textContent="all my kisses for you ♡";
+
+});
+
+confessionAudio.addEventListener("ended",()=>{
+
+resetVoiceCards();
+
+voiceStatus.textContent="I love you, always ♡";
+
+});
+
+/* RESET IF AUDIO IS PAUSED */
+
+kissAudio.addEventListener("pause",()=>{
+
+if(confessionAudio.paused){
+
+kissCard.classList.remove("playing");
+
+kissLabel.textContent="♡ Play my kisses";
+
+}
+
+});
+
+confessionAudio.addEventListener("pause",()=>{
+
+if(kissAudio.paused){
+
+confessionCard.classList.remove("playing");
+
+confessionLabel.textContent="♡ Hear my voice";
 
 }
 
