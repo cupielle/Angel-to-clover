@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -20,1255 +18,203 @@
 
 <style>
 
-:root {
+:root{--pink:#f8e3eb;--pink-dark:#d99db8;--lilac:#e9def4;--purple:#a88bb5;--cream:#fffaf4;--sage:#dce9d8;--text:#795c70;--muted:#ae91a3;--white:#fffdfd}
 
-  --pink:#f8e3eb;
+*{box-sizing:border-box;margin:0;padding:0}
 
-  --pink-dark:#d99db8;
+html{scroll-behavior:smooth}
 
-  --lilac:#e9def4;
+body{background:radial-gradient(ellipse at 10% 10%,#f8e7f0 0,transparent 35%),radial-gradient(ellipse at 90% 50%,#eee5f7 0,transparent 35%),var(--cream);color:var(--text);font-family:'Quicksand',sans-serif;overflow-x:hidden}
 
-  --purple:#a88bb5;
+body:before{content:"♡";position:fixed;top:12%;left:4%;color:#e7c6d7;font-size:35px;opacity:.6;pointer-events:none;z-index:0}
 
-  --cream:#fffaf4;
+body:after{content:"✧";position:fixed;bottom:12%;right:5%;color:#cbb5dc;font-size:38px;opacity:.6;pointer-events:none;z-index:0}
 
-  --sage:#dce9d8;
+a{color:inherit;text-decoration:none}
 
-  --text:#795c70;
+.page{width:min(100% - 30px,760px);margin:auto;padding:25px 0 35px}
 
-  --muted:#ae91a3;
+.top-note{text-align:center;font-family:'Caveat',cursive;color:var(--muted);font-size:19px;margin-bottom:15px}
 
-  --white:#fffdfd;
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:20px 0 30px}
 
-}
+nav a{background:#fffafd;border:1px solid #efdae7;border-radius:25px;padding:8px 13px;font-size:11px;font-weight:700;transition:.25s}
 
-* {box-sizing:border-box;margin:0;padding:0;}
+nav a:hover{background:var(--pink);transform:translateY(-3px)}
 
-html {scroll-behavior:smooth;}
+.card{background:rgba(255,253,253,.88);border:1px solid #efdae7;border-radius:25px;padding:28px 22px;margin:22px 0;box-shadow:0 8px 25px rgba(174,130,157,.09);position:relative;overflow:hidden}
 
-body {
+.hero{text-align:center;padding:45px 22px;background:linear-gradient(145deg,#fff9fc,#f6eafa)}
 
-  background:
+.hero:before{content:"୨୧";position:absolute;top:15px;right:20px;color:#d7b2cf;font-size:23px}
 
-    radial-gradient(ellipse at 10% 10%,#f8e7f0 0,transparent 35%),
+.hero:after{content:"✧";position:absolute;bottom:12px;left:20px;color:#c6add7;font-size:26px}
 
-    radial-gradient(ellipse at 90% 50%,#eee5f7 0,transparent 35%),
+.wing{font-size:48px;margin-bottom:12px}
 
-    var(--cream);
+.eyebrow{font-size:10px;letter-spacing:3px;font-weight:700;color:var(--muted);text-transform:uppercase}
 
-  color:var(--text);
+h1{font-family:'DM Serif Display',serif;font-size:clamp(38px,9vw,57px);color:#b17e9f;font-weight:400;font-style:italic;margin:12px 0}
 
-  font-family:'Quicksand',sans-serif;
+.subtitle{font-family:'Caveat',cursive;font-size:23px;color:#ae8bb1}
 
-  overflow-x:hidden;
+.intro{font-size:13px;line-height:2;margin:15px auto 22px;max-width:390px}
 
-}
+.button{display:inline-block;background:linear-gradient(120deg,#f5dce8,#e8ddf4);border:1px solid #e8cfe1;border-radius:30px;color:#795c70;padding:12px 21px;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;transition:.25s}
 
-body::before {
+.button:hover{transform:translateY(-3px);box-shadow:0 5px 15px #e5c9dc}
 
-  content:"♡";
+.secret{display:none;margin:22px auto 0;padding:18px;background:#fff6fa;border:1px dashed #ddb8cf;border-radius:17px;max-width:400px;font-family:'Caveat',cursive;font-size:23px;line-height:1.7}
 
-  position:fixed;
+.secret.show{display:block;animation:appear .5s ease}
 
-  top:12%;
+@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-  left:4%;
+.section-heading{text-align:center;margin-bottom:18px}
 
-  color:#e7c6d7;
+.section-heading h2{font-family:'DM Serif Display',serif;font-size:27px;font-weight:400;color:#ad83b2}
 
-  font-size:35px;
+.section-heading p{font-size:12px;margin-top:7px;color:var(--muted);line-height:1.7}
 
-  opacity:.6;
-
-  pointer-events:none;
-
-  z-index:0;
-
-}
-
-body::after {
-
-  content:"✧";
-
-  position:fixed;
-
-  bottom:12%;
-
-  right:5%;
-
-  color:#cbb5dc;
-
-  font-size:38px;
-
-  opacity:.6;
-
-  pointer-events:none;
-
-  z-index:0;
-
-}
-
-a {color:inherit;text-decoration:none;}
-
-.page {
-
-  width:min(100% - 30px,760px);
-
-  margin:auto;
-
-  padding:25px 0 35px;
-
-}
-
-.top-note {
-
-  text-align:center;
-
-  font-family:'Caveat',cursive;
-
-  color:var(--muted);
-
-  font-size:19px;
-
-  margin-bottom:15px;
-
-}
-
-nav {
-
-  display:flex;
-
-  justify-content:center;
-
-  flex-wrap:wrap;
-
-  gap:9px;
-
-  margin:20px 0 30px;
-
-}
-
-nav a {
-
-  background:#fffafd;
-
-  border:1px solid #efdae7;
-
-  border-radius:25px;
-
-  padding:8px 13px;
-
-  font-size:11px;
-
-  font-weight:700;
-
-  transition:.25s;
-
-}
-
-nav a:hover {
-
-  background:var(--pink);
-
-  transform:translateY(-3px);
-
-}
-
-.card {
-
-  background:rgba(255,253,253,.88);
-
-  border:1px solid #efdae7;
-
-  border-radius:25px;
-
-  padding:28px 22px;
-
-  margin:22px 0;
-
-  box-shadow:0 8px 25px rgba(174,130,157,.09);
-
-  position:relative;
-
-  overflow:hidden;
-
-}
-
-.hero {
-
-  text-align:center;
-
-  padding:45px 22px;
-
-  background:linear-gradient(145deg,#fff9fc,#f6eafa);
-
-}
-
-.hero::before {
-
-  content:"୨୧";
-
-  position:absolute;
-
-  top:15px;
-
-  right:20px;
-
-  color:#d7b2cf;
-
-  font-size:23px;
-
-}
-
-.hero::after {
-
-  content:"✧";
-
-  position:absolute;
-
-  bottom:12px;
-
-  left:20px;
-
-  color:#c6add7;
-
-  font-size:26px;
-
-}
-
-.wing {font-size:48px;margin-bottom:12px;}
-
-.eyebrow {
-
-  font-size:10px;
-
-  letter-spacing:3px;
-
-  font-weight:700;
-
-  color:var(--muted);
-
-  text-transform:uppercase;
-
-}
-
-h1 {
-
-  font-family:'DM Serif Display',serif;
-
-  font-size:clamp(38px,9vw,57px);
-
-  color:#b17e9f;
-
-  font-weight:400;
-
-  font-style:italic;
-
-  margin:12px 0;
-
-}
-
-.subtitle {
-
-  font-family:'Caveat',cursive;
-
-  font-size:23px;
-
-  color:#ae8bb1;
-
-}
-
-.intro {
-
-  font-size:13px;
-
-  line-height:2;
-
-  margin:15px auto 22px;
-
-  max-width:390px;
-
-}
-
-.button {
-
-  display:inline-block;
-
-  background:linear-gradient(120deg,#f5dce8,#e8ddf4);
-
-  border:1px solid #e8cfe1;
-
-  border-radius:30px;
-
-  color:#795c70;
-
-  padding:12px 21px;
-
-  font-family:inherit;
-
-  font-size:12px;
-
-  font-weight:700;
-
-  cursor:pointer;
-
-  transition:.25s;
-
-}
-
-.button:hover {
-
-  transform:translateY(-3px);
-
-  box-shadow:0 5px 15px #e5c9dc;
-
-}
-
-.secret {
-
-  display:none;
-
-  margin:22px auto 0;
-
-  padding:18px;
-
-  background:#fff6fa;
-
-  border:1px dashed #ddb8cf;
-
-  border-radius:17px;
-
-  max-width:400px;
-
-  font-family:'Caveat',cursive;
-
-  font-size:23px;
-
-  line-height:1.7;
-
-}
-
-.secret.show {
-
-  display:block;
-
-  animation:appear .5s ease;
-
-}
-
-@keyframes appear {
-
-  from {opacity:0;transform:translateY(10px);}
-
-  to {opacity:1;transform:translateY(0);}
-
-}
-
-.section-heading {
-
-  text-align:center;
-
-  margin-bottom:18px;
-
-}
-
-.section-heading h2 {
-
-  font-family:'DM Serif Display',serif;
-
-  font-size:27px;
-
-  font-weight:400;
-
-  color:#ad83b2;
-
-}
-
-.section-heading p {
-
-  font-size:12px;
-
-  margin-top:7px;
-
-  color:var(--muted);
-
-  line-height:1.7;
-
-}
-
-.decor {
-
-  text-align:center;
-
-  color:#c39fbd;
-
-  letter-spacing:8px;
-
-  font-size:17px;
-
-  margin:15px 0;
-
-}
+.decor{text-align:center;color:#c39fbd;letter-spacing:8px;font-size:17px;margin:15px 0}
 
 /* AYA SCRAPBOOK */
 
-.memory-grid {
+.memory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 
-  display:grid;
+.memory{position:relative;min-width:0;background:#fffaf5;padding:13px 13px 18px;border:1px solid #f1dce8;border-radius:5px;box-shadow:2px 5px 13px #b98da522;transform:rotate(-1deg)}
 
-  grid-template-columns:repeat(2,minmax(0,1fr));
+.memory:nth-child(even){transform:rotate(1.5deg);background:#fbf7ff}
 
-  gap:22px;
+.memory:nth-child(3n){transform:rotate(-1.5deg);background:#fff7fa}
 
-}
+.memory:before{content:" ";position:absolute;width:55px;height:17px;top:-8px;left:50%;transform:translateX(-50%) rotate(-4deg);background:#e9c8dfbb;z-index:2}
 
-.memory {
+.memory-photos{display:grid;grid-template-columns:1fr;gap:7px}
 
-  position:relative;
+.memory-photos.double{grid-template-columns:1fr 1fr}
 
-  min-width:0;
+.memory-photos img{display:block;width:100%;height:190px;object-fit:cover;border:5px solid white;box-shadow:0 2px 7px #00000012}
 
-  background:#fffaf5;
+.memory-photos.double img{height:145px}
 
-  padding:13px 13px 18px;
+.memory strong{display:block;margin:13px 0 9px;color:#9b7298;font-family:Georgia,serif;text-align:center;font-size:15px}
 
-  border:1px solid #f1dce8;
-
-  border-radius:5px;
-
-  box-shadow:2px 5px 13px #b98da522;
-
-  transform:rotate(-1deg);
-
-}
-
-.memory:nth-child(even) {
-
-  transform:rotate(1.5deg);
-
-  background:#fbf7ff;
-
-}
-
-.memory:nth-child(3n) {
-
-  transform:rotate(-1.5deg);
-
-  background:#fff7fa;
-
-}
-
-.memory::before {
-
-  content:" ";
-
-  position:absolute;
-
-  width:55px;
-
-  height:17px;
-
-  top:-8px;
-
-  left:50%;
-
-  transform:translateX(-50%) rotate(-4deg);
-
-  background:#e9c8dfbb;
-
-  z-index:2;
-
-}
-
-.memory-photos {
-
-  display:grid;
-
-  grid-template-columns:1fr;
-
-  gap:7px;
-
-}
-
-.memory-photos.double {
-
-  grid-template-columns:1fr 1fr;
-
-}
-
-.memory-photos img {
-
-  display:block;
-
-  width:100%;
-
-  height:190px;
-
-  object-fit:cover;
-
-  border:5px solid white;
-
-  box-shadow:0 2px 7px #00000012;
-
-}
-
-.memory-photos.double img {height:145px;}
-
-.memory strong {
-
-  display:block;
-
-  margin:13px 0 9px;
-
-  color:#9b7298;
-
-  font-family:Georgia,serif;
-
-  text-align:center;
-
-  font-size:15px;
-
-}
-
-.memory-note {
-
-  margin-top:12px;
-
-  padding:11px;
-
-  background:#fdf0f5;
-
-  border:1px dashed #dfb9ce;
-
-  border-radius:5px;
-
-  color:#987c91;
-
-  font-size:12px;
-
-  line-height:1.7;
-
-}
+.memory-note{margin-top:12px;padding:11px;background:#fdf0f5;border:1px dashed #dfb9ce;border-radius:5px;color:#987c91;font-size:12px;line-height:1.7}
 
 /* SOUNDTRACK */
 
-.soundtrack-intro {
+.soundtrack-intro{text-align:center;color:#ad91a8;font-family:'Caveat',cursive;font-size:20px;margin:8px 0 24px}
 
-  text-align:center;
+.playlist-card{position:relative;background:linear-gradient(145deg,#fffafd,#fbf5ff);border:1px solid #efdae9;border-radius:19px;padding:19px;margin:18px 0;box-shadow:0 5px 16px rgba(174,130,157,.08);transition:.3s ease}
 
-  color:#ad91a8;
+.playlist-card:hover{transform:translateY(-3px);box-shadow:0 9px 20px rgba(174,130,157,.14)}
 
-  font-family:'Caveat',cursive;
+.playlist-card.ours{background:linear-gradient(145deg,#fff9f7,#f3effb);border-color:#ddc8e7}
 
-  font-size:20px;
+.playlist-label{color:#bd91b4;font-size:9px;letter-spacing:2.5px;font-weight:700;text-align:center}
 
-  margin:8px 0 24px;
+.playlist-symbol{font-size:25px;text-align:center;margin:10px 0 5px}
 
-}
+.playlist-title{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:#ad83a5;text-align:center;margin:5px 0}
 
-.playlist-card {
+.playlist-description{font-size:11px;color:#ad91a8;text-align:center;line-height:1.7;margin-bottom:16px}
 
-  position:relative;
+.spotify-player{display:block;width:100%;height:352px;border:0;border-radius:13px;background:#f4eaf2}
 
-  background:linear-gradient(145deg,#fffafd,#fbf5ff);
-
-  border:1px solid #efdae9;
-
-  border-radius:19px;
-
-  padding:19px;
-
-  margin:18px 0;
-
-  box-shadow:0 5px 16px rgba(174,130,157,.08);
-
-  transition:.3s ease;
-
-}
-
-.playlist-card:hover {
-
-  transform:translateY(-3px);
-
-  box-shadow:0 9px 20px rgba(174,130,157,.14);
-
-}
-
-.playlist-card.ours {
-
-  background:linear-gradient(145deg,#fff9f7,#f3effb);
-
-  border-color:#ddc8e7;
-
-}
-
-.playlist-label {
-
-  color:#bd91b4;
-
-  font-size:9px;
-
-  letter-spacing:2.5px;
-
-  font-weight:700;
-
-  text-align:center;
-
-}
-
-.playlist-symbol {
-
-  font-size:25px;
-
-  text-align:center;
-
-  margin:10px 0 5px;
-
-}
-
-.playlist-title {
-
-  font-family:'DM Serif Display',serif;
-
-  font-size:22px;
-
-  font-weight:400;
-
-  color:#ad83a5;
-
-  text-align:center;
-
-  margin:5px 0;
-
-}
-
-.playlist-description {
-
-  font-size:11px;
-
-  color:#ad91a8;
-
-  text-align:center;
-
-  line-height:1.7;
-
-  margin-bottom:16px;
-
-}
-
-.spotify-player {
-
-  display:block;
-
-  width:100%;
-
-  height:352px;
-
-  border:0;
-
-  border-radius:13px;
-
-  background:#f4eaf2;
-
-}
-
-.playlist-footer {
-
-  text-align:center;
-
-  font-family:'Caveat',cursive;
-
-  color:#b894b2;
-
-  font-size:17px;
-
-  margin-top:23px;
-
-}
+.playlist-footer{text-align:center;font-family:'Caveat',cursive;color:#b894b2;font-size:17px;margin-top:23px}
 
 /* SOME DAY SCRAPBOOK */
 
-.someday-section {
+.someday-section{background:linear-gradient(145deg,#fff9f5,#f9eff8);border:1px solid #ead5e2}
 
-  background:linear-gradient(145deg,#fff9f5,#f9eff8);
+.scrapbook-cover{background:#fff6f1;border:1px dashed #dfbfd0;padding:25px 16px;text-align:center;border-radius:8px;box-shadow:3px 5px 12px #b98da522;transform:rotate(-1deg);margin:20px 5px 28px;position:relative}
 
-  border:1px solid #ead5e2;
+.scrapbook-cover h3{font-family:'DM Serif Display',serif;font-size:30px;font-style:italic;font-weight:400;color:#b17e9f;margin:10px 0}
 
-}
+.scrapbook-cover p{font-family:'Caveat',cursive;font-size:19px;color:#ad91a8}
 
-.scrapbook-cover {
+.scrapbook-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:22px 0}
 
-  background:#fff6f1;
+.scrapbook-tab{display:block;padding:18px 10px;min-height:115px;background:#fffaf5;border:1px solid #eed9e5;box-shadow:2px 4px 10px #b98da522;text-align:center;cursor:pointer;color:#98738f;font-family:inherit;transition:.25s;border-radius:3px}
 
-  border:1px dashed #dfbfd0;
+.scrapbook-tab:nth-child(even){background:#f8f2fc;transform:rotate(1.5deg)}
 
-  padding:25px 16px;
+.scrapbook-tab:nth-child(odd){transform:rotate(-1deg)}
 
-  text-align:center;
+.scrapbook-tab:hover{transform:translateY(-4px) rotate(0)}
 
-  border-radius:8px;
+.scrapbook-tab span{display:block;font-size:25px;margin-bottom:9px}
 
-  box-shadow:3px 5px 12px #b98da522;
+.scrapbook-tab strong{font-family:'DM Serif Display',serif;font-size:15px;font-weight:400}
 
-  transform:rotate(-1deg);
+.scrapbook-page{display:none;background:#fffaf5;border:1px solid #ecd9e2;padding:20px 15px;margin:22px 0;box-shadow:3px 5px 15px #b98da522;position:relative}
 
-  margin:20px 5px 28px;
+.scrapbook-page.active{display:block;animation:appear .4s ease}
 
-  position:relative;
+.scrapbook-page-title{font-family:'DM Serif Display',serif;font-size:25px;color:#ad83b2;text-align:center;margin-bottom:7px}
 
-}
+.scrapbook-page-note{font-family:'Caveat',cursive;font-size:18px;color:#b18ba8;text-align:center;margin-bottom:22px}
 
-.scrapbook-cover h3 {
+.scrapbook-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
 
-  font-family:'DM Serif Display',serif;
+.scrapbook-item{background:#fff;padding:10px 9px 13px;border:1px solid #eee0e5;box-shadow:2px 4px 10px #b98da522;position:relative;transform:rotate(-1deg);min-width:0}
 
-  font-size:30px;
+.scrapbook-item:nth-child(even){transform:rotate(1.5deg);background:#fcf7ff}
 
-  font-style:italic;
+.scrapbook-item:nth-child(3n){transform:rotate(-1.5deg);background:#fff7fa}
 
-  font-weight:400;
+.scrapbook-item-visual{width:100%;height:175px;overflow:hidden;background:linear-gradient(145deg,#f8e4ed,#e9def4);display:flex;align-items:center;justify-content:center;font-size:37px;border:5px solid white;box-shadow:0 2px 7px #00000012}
 
-  color:#b17e9f;
+.scrapbook-item-visual img{width:100%;height:100%;display:block;object-fit:cover}
 
-  margin:10px 0;
+.scrapbook-item h4{font-family:'DM Serif Display',serif;font-weight:400;color:#9b7298;text-align:center;font-size:15px;margin:12px 0 7px}
 
-}
+.scrapbook-item p{font-size:11px;line-height:1.7;color:#987c91;text-align:center}
 
-.scrapbook-cover p {
-
-  font-family:'Caveat',cursive;
-
-  font-size:19px;
-
-  color:#ad91a8;
-
-}
-
-.scrapbook-tabs {
-
-  display:grid;
-
-  grid-template-columns:repeat(2,minmax(0,1fr));
-
-  gap:13px;
-
-  margin:22px 0;
-
-}
-
-.scrapbook-tab {
-
-  display:block;
-
-  padding:18px 10px;
-
-  min-height:115px;
-
-  background:#fffaf5;
-
-  border:1px solid #eed9e5;
-
-  box-shadow:2px 4px 10px #b98da522;
-
-  text-align:center;
-
-  cursor:pointer;
-
-  color:#98738f;
-
-  font-family:inherit;
-
-  transition:.25s;
-
-  border-radius:3px;
-
-}
-
-.scrapbook-tab:nth-child(even) {
-
-  background:#f8f2fc;
-
-  transform:rotate(1.5deg);
-
-}
-
-.scrapbook-tab:nth-child(odd) {
-
-  transform:rotate(-1deg);
-
-}
-
-.scrapbook-tab:hover {
-
-  transform:translateY(-4px) rotate(0);
-
-}
-
-.scrapbook-tab span {
-
-  display:block;
-
-  font-size:25px;
-
-  margin-bottom:9px;
-
-}
-
-.scrapbook-tab strong {
-
-  font-family:'DM Serif Display',serif;
-
-  font-size:15px;
-
-  font-weight:400;
-
-}
-
-.scrapbook-page {
-
-  display:none;
-
-  background:#fffaf5;
-
-  border:1px solid #ecd9e2;
-
-  padding:20px 15px;
-
-  margin:22px 0;
-
-  box-shadow:3px 5px 15px #b98da522;
-
-  position:relative;
-
-}
-
-.scrapbook-page.active {
-
-  display:block;
-
-  animation:appear .4s ease;
-
-}
-
-.scrapbook-page-title {
-
-  font-family:'DM Serif Display',serif;
-
-  font-size:25px;
-
-  color:#ad83b2;
-
-  text-align:center;
-
-  margin-bottom:7px;
-
-}
-
-.scrapbook-page-note {
-
-  font-family:'Caveat',cursive;
-
-  font-size:18px;
-
-  color:#b18ba8;
-
-  text-align:center;
-
-  margin-bottom:22px;
-
-}
-
-.scrapbook-items {
-
-  display:grid;
-
-  grid-template-columns:repeat(2,minmax(0,1fr));
-
-  gap:17px;
-
-}
-
-.scrapbook-item {
-
-  background:#fff;
-
-  padding:10px 9px 13px;
-
-  border:1px solid #eee0e5;
-
-  box-shadow:2px 4px 10px #b98da522;
-
-  position:relative;
-
-  transform:rotate(-1deg);
-
-  min-width:0;
-
-}
-
-.scrapbook-item:nth-child(even) {
-
-  transform:rotate(1.5deg);
-
-  background:#fcf7ff;
-
-}
-
-.scrapbook-item:nth-child(3n) {
-
-  transform:rotate(-1.5deg);
-
-  background:#fff7fa;
-
-}
-
-.scrapbook-item-visual {
-
-  min-height:105px;
-
-  background:linear-gradient(145deg,#f8e4ed,#e9def4);
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  font-size:37px;
-
-  border:5px solid white;
-
-  box-shadow:0 2px 7px #00000012;
-
-}
-
-.scrapbook-item h4 {
-
-  font-family:'DM Serif Display',serif;
-
-  font-weight:400;
-
-  color:#9b7298;
-
-  text-align:center;
-
-  font-size:15px;
-
-  margin:12px 0 7px;
-
-}
-
-.scrapbook-item p {
-
-  font-size:11px;
-
-  line-height:1.7;
-
-  color:#987c91;
-
-  text-align:center;
-
-}
-
-.scrapbook-back {
-
-  display:block;
-
-  margin:22px auto 0;
-
-  background:#f5e6ef;
-
-  border:1px dashed #dcb9ce;
-
-  padding:10px 18px;
-
-  border-radius:20px;
-
-  color:#98738f;
-
-  font-family:inherit;
-
-  font-weight:700;
-
-  cursor:pointer;
-
-}
+.scrapbook-back{display:block;margin:22px auto 0;background:#f5e6ef;border:1px dashed #dcb9ce;padding:10px 18px;border-radius:20px;color:#98738f;font-family:inherit;font-weight:700;cursor:pointer}
 
 /* CHECKLIST */
 
-.progress-area {
+.progress-area{background:#fff6fa;border:1px dashed #dfbfd0;border-radius:13px;padding:15px;margin-bottom:20px;text-align:center}
 
-  background:#fff6fa;
+.progress-text{font-family:'Caveat',cursive;font-size:19px;color:#ad83a5;margin-bottom:10px}
 
-  border:1px dashed #dfbfd0;
+.progress-track{height:9px;background:#f0e1ed;border-radius:20px;overflow:hidden}
 
-  border-radius:13px;
+.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#e9bcd1,#c6a6d8);border-radius:20px;transition:width .4s ease}
 
-  padding:15px;
+.checklist{display:flex;flex-direction:column;gap:11px}
 
-  margin-bottom:20px;
+.check-item{display:flex;align-items:flex-start;gap:11px;padding:13px;background:#fff;border:1px solid #eee0e8;border-radius:10px;font-size:12px;line-height:1.7;cursor:pointer;transition:.25s}
 
-  text-align:center;
+.check-item:nth-child(even){background:#fcf7ff}
 
-}
+.check-item input{appearance:none;-webkit-appearance:none;flex-shrink:0;width:19px;height:19px;margin-top:1px;border:1.5px solid #d6abc4;border-radius:5px;background:#fffafd;cursor:pointer;position:relative}
 
-.progress-text {
+.check-item input:checked{background:#d9b9d9;border-color:#c39bc3}
 
-  font-family:'Caveat',cursive;
+.check-item input:checked:after{content:"✓";position:absolute;color:white;font-size:14px;font-weight:bold;left:3px;top:-1px}
 
-  font-size:19px;
+.check-item.done span{text-decoration:line-through;opacity:.55}
 
-  color:#ad83a5;
+.completion-message{display:none;text-align:center;margin-top:20px;font-family:'Caveat',cursive;font-size:22px;color:#ad83a5}
 
-  margin-bottom:10px;
-
-}
-
-.progress-track {
-
-  height:9px;
-
-  background:#f0e1ed;
-
-  border-radius:20px;
-
-  overflow:hidden;
-
-}
-
-.progress-fill {
-
-  height:100%;
-
-  width:0%;
-
-  background:linear-gradient(90deg,#e9bcd1,#c6a6d8);
-
-  border-radius:20px;
-
-  transition:width .4s ease;
-
-}
-
-.checklist {
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:11px;
-
-}
-
-.check-item {
-
-  display:flex;
-
-  align-items:flex-start;
-
-  gap:11px;
-
-  padding:13px;
-
-  background:#fff;
-
-  border:1px solid #eee0e8;
-
-  border-radius:10px;
-
-  font-size:12px;
-
-  line-height:1.7;
-
-  cursor:pointer;
-
-  transition:.25s;
-
-}
-
-.check-item:nth-child(even) {
-
-  background:#fcf7ff;
-
-}
-
-.check-item input {
-
-  appearance:none;
-
-  -webkit-appearance:none;
-
-  flex-shrink:0;
-
-  width:19px;
-
-  height:19px;
-
-  margin-top:1px;
-
-  border:1.5px solid #d6abc4;
-
-  border-radius:5px;
-
-  background:#fffafd;
-
-  cursor:pointer;
-
-  position:relative;
-
-}
-
-.check-item input:checked {
-
-  background:#d9b9d9;
-
-  border-color:#c39bc3;
-
-}
-
-.check-item input:checked::after {
-
-  content:"✓";
-
-  position:absolute;
-
-  color:white;
-
-  font-size:14px;
-
-  font-weight:bold;
-
-  left:3px;
-
-  top:-1px;
-
-}
-
-.check-item.done span {
-
-  text-decoration:line-through;
-
-  opacity:.55;
-
-}
-
-.completion-message {
-
-  display:none;
-
-  text-align:center;
-
-  margin-top:20px;
-
-  font-family:'Caveat',cursive;
-
-  font-size:22px;
-
-  color:#ad83a5;
-
-}
-
-.completion-message.show {
-
-  display:block;
-
-  animation:appear .5s ease;
-
-}
+.completion-message.show{display:block;animation:appear .5s ease}
 
 /* LOVE NOTES */
 
-.letter {
+.letter{background:#fff8f5;border:1px dashed #dfc1d1;border-radius:18px;padding:22px;font-family:'Caveat',cursive;font-size:21px;line-height:1.8;text-align:left}
 
-  background:#fff8f5;
+.letter .signature{text-align:right;color:#b17e9f;margin-top:15px}
 
-  border:1px dashed #dfc1d1;
+footer{text-align:center;padding:25px 10px;color:#b08da7;font-size:11px;line-height:2}
 
-  border-radius:18px;
+.footer-heart{font-size:22px;margin-bottom:5px}
 
-  padding:22px;
+@media(max-width:500px){.memory-grid{grid-template-columns:1fr;gap:24px}.memory-photos img{height:230px}.memory-photos.double img{height:155px}.scrapbook-item-visual{height:155px}}
 
-  font-family:'Caveat',cursive;
-
-  font-size:21px;
-
-  line-height:1.8;
-
-  text-align:left;
-
-}
-
-.letter .signature {
-
-  text-align:right;
-
-  color:#b17e9f;
-
-  margin-top:15px;
-
-}
-
-/* FOOTER */
-
-footer {
-
-  text-align:center;
-
-  padding:25px 10px;
-
-  color:#b08da7;
-
-  font-size:11px;
-
-  line-height:2;
-
-}
-
-.footer-heart {font-size:22px;margin-bottom:5px;}
-
-/* MOBILE */
-
-@media (max-width:500px) {
-
-  .memory-grid {
-
-    grid-template-columns:1fr;
-
-    gap:24px;
-
-  }
-
-  .memory-photos img {height:230px;}
-
-  .memory-photos.double img {height:155px;}
-
-}
-
-@media (max-width:420px) {
-
-  .card {padding:23px 16px;}
-
-  nav {gap:6px;}
-
-  nav a {
-
-    padding:8px 10px;
-
-    font-size:10px;
-
-  }
-
-  .playlist-card {padding:14px;}
-
-  .playlist-title {font-size:20px;}
-
-  .scrapbook-items {gap:12px;}
-
-  .scrapbook-item {padding:8px;}
-
-  .scrapbook-item-visual {min-height:85px;}
-
-}
+@media(max-width:420px){.card{padding:23px 16px}nav{gap:6px}nav a{padding:8px 10px;font-size:10px}.playlist-card{padding:14px}.playlist-title{font-size:20px}.scrapbook-items{gap:12px}.scrapbook-item{padding:8px}.scrapbook-item-visual{height:125px}}
 
 </style>
 
@@ -1284,879 +230,379 @@ footer {
 
 <nav>
 
-  <a href="#home">Home</a>
-
-  <a href="#archive">Aya archive</a>
-
-  <a href="#music">Soundtrack</a>
-
-  <a href="#someday">Someday</a>
-
-  <a href="#letters">Love notes</a>
+<a href="#home">Home</a><a href="#archive">Aya archive</a><a href="#music">Soundtrack</a><a href="#someday">Someday</a><a href="#letters">Love notes</a>
 
 </nav>
 
-<!-- HOME -->
-
 <section class="card hero" id="home">
 
-  <div class="wing">🪽🍀</div>
+<div class="wing">🪽🍀</div>
 
-  <p class="eyebrow">A LITTLE WORLD MADE BY ANGEL</p>
+<p class="eyebrow">A LITTLE WORLD MADE BY ANGEL</p>
 
-  <h1>Angel to Clover</h1>
+<h1>Angel to Clover</h1>
 
-  <p class="subtitle">Somewhere, it's always you.</p>
+<p class="subtitle">Somewhere, it's always you.</p>
 
-  <p class="intro">
+<p class="intro">Welcome to our little corner of the universe, my beautiful Clover. A place for memories, little dreams, silly moments and everything that reminds me of you.</p>
 
-    Welcome to our little corner of the universe,
+<button class="button" onclick="openSecret()">Open your little surprise ♡</button>
 
-    my beautiful Clover.
-
-    A place for memories, little dreams,
-
-    silly moments and everything that reminds me of you.
-
-  </p>
-
-  <button class="button" onclick="openSecret()">
-
-    Open your little surprise ♡
-
-  </button>
-
-  <div class="secret" id="secret">
-
-    To my beautiful Clover,<br>
-
-    I'm so lucky that my little world found you.
-
-    You make ordinary days feel special.
-
-    I love you, baby. ♡
-
-  </div>
+<div class="secret" id="secret">To my beautiful Clover,<br>I'm so lucky that my little world found you. You make ordinary days feel special. I love you, baby. ♡</div>
 
 </section>
 
 <div class="decor">✧ ˚ ୨୧ ˚ ✧</div>
 
-<!-- AYA ARCHIVE -->
-
 <section class="card" id="archive">
 
-  <div class="section-heading">
+<div class="section-heading"><h2>♡ The Aya Archive ♡</h2><p>A little collection of everything that makes you, you.</p></div>
 
-    <h2>♡ The Aya Archive ♡</h2>
+<div class="memory-grid">
 
-    <p>A little collection of everything that makes you, you.</p>
+<div class="memory">
 
-  </div>
+<div class="memory-photos double">
 
-  <div class="memory-grid">
+<img src="images/00547c1f-ab4c-4197-bf5c-67de10db5f33.jpeg" alt="My personality map" loading="lazy">
 
-    <div class="memory">
+<img src="images/7e23a49b-818c-4b0e-8aee-dfc42f04df34.jpeg" alt="Aya's personality map" loading="lazy">
 
-      <div class="memory-photos double">
+</div>
 
-        <img src="images/00547c1f-ab4c-4197-bf5c-67de10db5f33.jpeg" alt="My personality map" loading="lazy">
+<strong>our personality maps ♡</strong>
 
-        <img src="images/7e23a49b-818c-4b0e-8aee-dfc42f04df34.jpeg" alt="Aya's personality map" loading="lazy">
+<div class="memory-note">back when we made our personality map which is the first trend we followed together.</div>
 
-      </div>
+</div>
 
-      <strong>our personality maps ♡</strong>
+<div class="memory">
 
-      <div class="memory-note">
+<div class="memory-photos"><img src="images/1293F6E5-DB3F-46D5-BAB6-001FF9C919C8.jpeg" alt="Our 24 hour Discord call" loading="lazy"></div>
 
-        back when we made our personality map which is the first trend we followed together.
+<strong>24 hours together ♡</strong><div class="memory-note">when we spent 24h together in call.</div>
 
-      </div>
+</div>
 
-    </div>
+<div class="memory">
 
-    <div class="memory">
+<div class="memory-photos"><img src="images/IMG_1198.jpeg" alt="Our first Roblox kiss" loading="lazy"></div>
 
-      <div class="memory-photos">
+<strong>our first roblox kiss ♡</strong>
 
-        <img src="images/1293F6E5-DB3F-46D5-BAB6-001FF9C919C8.jpeg" alt="Our 24 hour Discord call" loading="lazy">
+</div>
 
-      </div>
+<div class="memory">
 
-      <strong>24 hours together ♡</strong>
+<div class="memory-photos"><img src="images/Untitled108_20261106114430.png" alt="Us in the My Little Pony universe" loading="lazy"></div>
 
-      <div class="memory-note">
+<strong>us in the mlp universe ♡</strong>
 
-        when we spent 24h together in call.
+</div>
 
-      </div>
+<div class="memory">
 
-    </div>
+<div class="memory-photos double">
 
-    <div class="memory">
+<img src="images/AA3A6D42-05C5-4EF3-8C9B-DD228F3244DD.jpeg" alt="Aya's phone wallpaper featuring me" loading="lazy">
 
-      <div class="memory-photos">
+<img src="images/IMG_9270.jpeg" alt="My phone wallpaper featuring Aya" loading="lazy">
 
-        <img src="images/IMG_1198.jpeg" alt="Our first Roblox kiss" loading="lazy">
+</div>
 
-      </div>
+<strong>together, every day ♡</strong><div class="memory-note">us being together in our every day and every where despite being so far away.</div>
 
-      <strong>our first roblox kiss ♡</strong>
+</div>
 
-    </div>
-
-    <div class="memory">
-
-      <div class="memory-photos">
-
-        <img src="images/Untitled108_20261106114430.png" alt="Us in the My Little Pony universe" loading="lazy">
-
-      </div>
-
-      <strong>us in the mlp universe ♡</strong>
-
-    </div>
-
-    <div class="memory">
-
-      <div class="memory-photos double">
-
-        <img src="images/AA3A6D42-05C5-4EF3-8C9B-DD228F3244DD.jpeg" alt="Aya's phone wallpaper featuring me" loading="lazy">
-
-        <img src="images/IMG_9270.jpeg" alt="My phone wallpaper featuring Aya" loading="lazy">
-
-      </div>
-
-      <strong>together, every day ♡</strong>
-
-      <div class="memory-note">
-
-        us being together in our every day and every where despite being so far away.
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
-
-<!-- SOUNDTRACK -->
 
 <section class="card" id="music">
 
-  <div class="section-heading">
+<div class="section-heading"><h2>♡ Our Soundtrack ♡</h2><p>Three playlists, two hearts, one little universe.</p></div>
 
-    <h2>♡ Our Soundtrack ♡</h2>
+<p class="soundtrack-intro">every song holds a little piece of us ♡</p>
 
-    <p>Three playlists, two hearts, one little universe.</p>
+<div class="playlist-card">
 
-  </div>
+<div class="playlist-label">01 · HER TO ME</div><div class="playlist-symbol">🎀</div>
 
-  <p class="soundtrack-intro">every song holds a little piece of us ♡</p>
+<h3 class="playlist-title">in her mind, it's me</h3><p class="playlist-description">songs that she said remind her of me ♡</p>
 
-  <div class="playlist-card">
+<iframe class="spotify-player" src="https://open.spotify.com/embed/playlist/2s781lSi1AKrGsx3lkSv48?utm_source=generator&amp;theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="In her mind, it's me playlist"></iframe>
 
-    <div class="playlist-label">01 · HER TO ME</div>
+</div>
 
-    <div class="playlist-symbol">🎀</div>
+<div class="playlist-card">
 
-    <h3 class="playlist-title">in her mind, it's me</h3>
+<div class="playlist-label">02 · ME TO HER</div><div class="playlist-symbol">🪽</div>
 
-    <p class="playlist-description">songs that she said remind her of me ♡</p>
+<h3 class="playlist-title">she's in every melody</h3><p class="playlist-description">songs that remind me of her ♡</p>
 
-    <iframe class="spotify-player"
+<iframe class="spotify-player" src="https://open.spotify.com/embed/playlist/7irYR6x0CnY0UXeoFL1dPB?utm_source=generator&amp;theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="She's in every melody playlist"></iframe>
 
-      src="https://open.spotify.com/embed/playlist/2s781lSi1AKrGsx3lkSv48?utm_source=generator&theme=0"
+</div>
 
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+<div class="playlist-card ours">
 
-      loading="lazy"
+<div class="playlist-label">03 · OURS</div><div class="playlist-symbol">🍀</div>
 
-      title="In her mind, it's me playlist">
+<h3 class="playlist-title">angel to clover🌸</h3><p class="playlist-description">our songs, our memories, our little world ♡</p>
 
-    </iframe>
+<iframe class="spotify-player" src="https://open.spotify.com/embed/playlist/3jrAQZwlvxAvs0WbF8PprC?utm_source=generator&amp;theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Angel to Clover shared playlist"></iframe>
 
-  </div>
+</div>
 
-  <div class="playlist-card">
-
-    <div class="playlist-label">02 · ME TO HER</div>
-
-    <div class="playlist-symbol">🪽</div>
-
-    <h3 class="playlist-title">she's in every melody</h3>
-
-    <p class="playlist-description">songs that remind me of her ♡</p>
-
-    <iframe class="spotify-player"
-
-      src="https://open.spotify.com/embed/playlist/7irYR6x0CnY0UXeoFL1dPB?utm_source=generator&theme=0"
-
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-
-      loading="lazy"
-
-      title="She's in every melody playlist">
-
-    </iframe>
-
-  </div>
-
-  <div class="playlist-card ours">
-
-    <div class="playlist-label">03 · OURS</div>
-
-    <div class="playlist-symbol">🍀</div>
-
-    <h3 class="playlist-title">angel to clover🌸</h3>
-
-    <p class="playlist-description">our songs, our memories, our little world ♡</p>
-
-    <iframe class="spotify-player"
-
-      src="https://open.spotify.com/embed/playlist/3jrAQZwlvxAvs0WbF8PprC?utm_source=generator&theme=0"
-
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-
-      loading="lazy"
-
-      title="Angel to Clover shared playlist">
-
-    </iframe>
-
-  </div>
-
-  <div class="playlist-footer">made with love, from angel to clover ♡</div>
+<div class="playlist-footer">made with love, from angel to clover ♡</div>
 
 </section>
-
-<!-- SOME DAY SCRAPBOOK -->
 
 <section class="card someday-section" id="someday">
 
-  <div class="section-heading">
+<div class="section-heading"><h2>♡ Our Someday ♡</h2><p>A little scrapbook of all the things waiting for us.</p></div>
 
-    <h2>♡ Our Someday ♡</h2>
+<div class="scrapbook-cover">
 
-    <p>A little scrapbook of all the things waiting for us.</p>
+<div style="font-size:38px;">📖 ୨୧ 🍀</div><h3>Our Little Someday Book</h3>
 
-  </div>
+<p>Little plans, big dreams and a lifetime together.</p><div class="decor">✧ ♡ ✧</div><p>made for two little souls ♡</p>
 
-  <div class="scrapbook-cover">
+</div>
 
-    <div style="font-size:38px;">📖 ୨୧ 🍀</div>
+<div class="scrapbook-tabs">
 
-    <h3>Our Little Someday Book</h3>
+<button class="scrapbook-tab" onclick="openScrapbookPage('places')"><span>📍</span><strong>Places to go</strong></button>
 
-    <p>Little plans, big dreams and a lifetime together.</p>
+<button class="scrapbook-tab" onclick="openScrapbookPage('dates')"><span>🎀</span><strong>Dates to have</strong></button>
 
-    <div class="decor">✧ ♡ ✧</div>
+<button class="scrapbook-tab" onclick="openScrapbookPage('experiences')"><span>🧸</span><strong>Things to experience</strong></button>
 
-    <p>made for two little souls ♡</p>
+<button class="scrapbook-tab" onclick="openScrapbookPage('dreams')"><span>☁️</span><strong>Little dreams</strong></button>
 
-  </div>
+<button class="scrapbook-tab" onclick="openScrapbookPage('list')" style="grid-column:1/-1;"><span>♡</span><strong>Our someday list</strong></button>
 
-  <!-- SCRAPBOOK TABS -->
+</div>
 
-  <div class="scrapbook-tabs">
+<div class="scrapbook-page" id="places">
 
-    <button class="scrapbook-tab" onclick="openScrapbookPage('places')">
+<h3 class="scrapbook-page-title">📍 Places to go</h3><p class="scrapbook-page-note">Different places, the same favorite person.</p>
 
-      <span>📍</span>
+<div class="scrapbook-items">
 
-      <strong>Places to go</strong>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9327.jpeg" alt="America" loading="lazy"></div><h4>America 🇺🇸</h4><p>The vibe, the food, fun activities, amusement parks and concerts.</p></div>
 
-    </button>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_8796.jpeg" alt="Japan" loading="lazy"></div><h4>Japan 🇯🇵</h4><p>Traditional festivals, cosplay events, culture, food, manga, fashion and nature.</p></div>
 
-    <button class="scrapbook-tab" onclick="openScrapbookPage('dates')">
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9332.jpeg" alt="South Korea" loading="lazy"></div><h4>South Korea 🇰🇷</h4><p>The food, culture, K-pop concerts, fan meetings and trends.</p></div>
 
-      <span>🎀</span>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9333.jpeg" alt="China" loading="lazy"></div><h4>China 🇨🇳</h4><p>The food, lifestyle, animals, culture and people.</p></div>
 
-      <strong>Dates to have</strong>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9339.jpeg" alt="Spain" loading="lazy"></div><h4>Spain 🇪🇸</h4><p>The sea, mountains, nature, vibes and culture.</p></div>
 
-    </button>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9341.jpeg" alt="Russia" loading="lazy"></div><h4>Russia 🇷🇺</h4><p>The weather, snow, aesthetic, vibe and underground town.</p></div>
 
-    <button class="scrapbook-tab" onclick="openScrapbookPage('experiences')">
+</div>
 
-      <span>🧸</span>
+<button class="scrapbook-back" onclick="backToScrapbook()">← Back to our scrapbook</button>
 
-      <strong>Things to experience</strong>
+</div>
 
-    </button>
+<div class="scrapbook-page" id="dates">
 
-    <button class="scrapbook-tab" onclick="openScrapbookPage('dreams')">
+<h3 class="scrapbook-page-title">🎀 Dates to have</h3><p class="scrapbook-page-note">Six little ways to make ordinary days special.</p>
 
-      <span>☁️</span>
+<div class="scrapbook-items">
 
-      <strong>Little dreams</strong>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9347.jpeg" alt="Library date" loading="lazy"></div><h4>Library date</h4><p>We each pick a book based on our own taste, exchange them, read the books chosen by each other and discuss them later.</p></div>
 
-    </button>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9350.jpeg" alt="Night walk feeding animals" loading="lazy"></div><h4>Late night animal date</h4><p>Go for a late-night walk with cat and dog food, feed stray animals along the way and yap about everything and nothing.</p></div>
 
-    <button class="scrapbook-tab" onclick="openScrapbookPage('list')" style="grid-column:1/-1;">
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9354.jpeg" alt="Watching My Little Pony" loading="lazy"></div><h4>My Little Pony night</h4><p>Cuddle together and watch our favorite show, because obviously it deserves its own date.</p></div>
 
-      <span>♡</span>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9355.jpeg" alt="Painting each other" loading="lazy"></div><h4>Paint each other</h4><p>Each of us draws or paints the other based on her own perspective, how she sees her and how she feels about her.</p></div>
 
-      <strong>Our someday list</strong>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9357.jpeg" alt="Craft picnic" loading="lazy"></div><h4>Craft picnic</h4><p>A picnic with papers, clay and lots of little supplies to make crafts together.</p></div>
 
-    </button>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9358.jpeg" alt="Escape room" loading="lazy"></div><h4>Escape room date</h4><p>Work together to solve puzzles, figure out the clues and escape the room.</p></div>
 
-  </div>
+</div>
 
-  <!-- PLACES TO GO -->
+<button class="scrapbook-back" onclick="backToScrapbook()">← Back to our scrapbook</button>
 
-  <div class="scrapbook-page" id="places">
+</div>
 
-    <h3 class="scrapbook-page-title">📍 Places to go</h3>
+<div class="scrapbook-page" id="experiences">
 
-    <p class="scrapbook-page-note">Different places, the same favorite person.</p>
+<h3 class="scrapbook-page-title">🧸 Things to experience</h3><p class="scrapbook-page-note">Little experiences that would feel different together.</p>
 
-    <div class="scrapbook-items">
+<div class="scrapbook-items">
 
-      <div class="scrapbook-item">
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9363.jpeg" alt="Pretend first date" loading="lazy"></div><h4>Meet for the first time</h4><p>Pretend not to know each other and meet again for the very first time.</p></div>
 
-        <div class="scrapbook-item-visual">🇺🇸</div>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9368.jpeg" alt="Thrift store" loading="lazy"></div><h4>Thrift &amp; style</h4><p>Thrift clothes from vintage stores or jotia, then style each other using our finds.</p></div>
 
-        <h4>America</h4>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9369.jpeg" alt="Secret podcast" loading="lazy"></div><h4>Secret podcast</h4><p>Record our own little secret podcast together.</p></div>
 
-        <p>The vibe, the food, fun activities, amusement parks and concerts.</p>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9370.jpeg" alt="Cuddling" loading="lazy"></div><h4>Chest-to-chest cuddles</h4><p>Cuddle chest to chest while sleeping, with me softly scratching your back as I hold you.</p></div>
 
-      </div>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9366.jpeg" alt="Lap makeup" loading="lazy"></div><h4>Makeup date</h4><p>I sit on your lap and do your makeup for you.</p></div>
 
-      <div class="scrapbook-item">
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9371.jpeg" alt="Childhood play" loading="lazy"></div><h4>Childhood together</h4><p>Do a personal childhood activity we used to enjoy alone as kids, but together this time.</p></div>
 
-        <div class="scrapbook-item-visual">🇯🇵</div>
+</div>
 
-        <h4>Japan</h4>
+<button class="scrapbook-back" onclick="backToScrapbook()">← Back to our scrapbook</button>
 
-        <p>Traditional festivals, cosplay events, culture, food, manga, fashion and nature.</p>
+</div>
 
-      </div>
+<div class="scrapbook-page" id="dreams">
 
-      <div class="scrapbook-item">
+<h3 class="scrapbook-page-title">☁️ Little dreams</h3><p class="scrapbook-page-note">Some dreams are worth growing old for.</p>
 
-        <div class="scrapbook-item-visual">🇰🇷</div>
+<div class="scrapbook-items">
 
-        <h4>South Korea</h4>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9375.jpeg" alt="Moving out together" loading="lazy"></div><h4>Our own home</h4><p>Move out together and build a little home of our own.</p></div>
 
-        <p>The food, culture, K-pop concerts, fan meetings and trends.</p>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9376.jpeg" alt="Marriage" loading="lazy"></div><h4>Our secret marriage</h4><p>Get married in a country where same-sex marriage is legally supported.</p></div>
 
-      </div>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9373.jpeg" alt="Adopting pets" loading="lazy"></div><h4>Our little zoo</h4><p>Adopt three dogs and three cats and give them all the love they deserve.</p></div>
 
-      <div class="scrapbook-item">
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9377.jpeg" alt="BTS concert" loading="lazy"></div><h4>BTS together</h4><p>Attend a real-life BTS concert together.</p></div>
 
-        <div class="scrapbook-item-visual">🇨🇳</div>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9378.jpeg" alt="Sky lantern festival" loading="lazy"></div><h4>Sky lantern festival</h4><p>Make a little wish together while watching lanterns fly into the night sky.</p></div>
 
-        <h4>China</h4>
+<div class="scrapbook-item"><div class="scrapbook-item-visual"><img src="images/IMG_9382.jpeg" alt="Growing old together" loading="lazy"></div><h4>Growing old together</h4><p>Grow old together, still choosing each other every single day.</p></div>
 
-        <p>The food, lifestyle, animals, culture and people.</p>
+</div>
 
-      </div>
+<button class="scrapbook-back" onclick="backToScrapbook()">← Back to our scrapbook</button>
 
-      <div class="scrapbook-item">
+</div>
 
-        <div class="scrapbook-item-visual">🇪🇸</div>
+<div class="scrapbook-page" id="list">
 
-        <h4>Spain</h4>
+<h3 class="scrapbook-page-title">♡ Our someday list</h3><p class="scrapbook-page-note">Little things we want to make happen together.</p>
 
-        <p>The sea, mountains, nature, vibes and culture.</p>
+<div class="progress-area">
 
-      </div>
+<div class="progress-text"><span id="progress-count">0</span> / 6 little adventures completed ♡</div>
 
-      <div class="scrapbook-item">
+<div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
 
-        <div class="scrapbook-item-visual">🇷🇺</div>
+</div>
 
-        <h4>Russia</h4>
+<div class="checklist">
 
-        <p>The weather, snow, aesthetic, vibe and underground town.</p>
+<label class="check-item"><input type="checkbox" class="dream-check" data-id="1"><span>Have a spontaneous adventure.</span></label>
 
-      </div>
+<label class="check-item"><input type="checkbox" class="dream-check" data-id="2"><span>Learn about each other's interests so we can enjoy them together.</span></label>
 
-    </div>
+<label class="check-item"><input type="checkbox" class="dream-check" data-id="3"><span>Have a mutual, oddly specific personality map about each other.</span></label>
 
-    <button class="scrapbook-back" onclick="backToScrapbook()">← Back to our scrapbook</button>
+<label class="check-item"><input type="checkbox" class="dream-check" data-id="4"><span>Go on a date before the end of 2027.</span></label>
 
-  </div>
+<label class="check-item"><input type="checkbox" class="dream-check" data-id="5"><span>Lock in at the gym to be strong enough to recreate the reel you sent me earlier.</span></label>
 
-  <!-- DATES TO HAVE -->
+<label class="check-item"><input type="checkbox" class="dream-check" data-id="6"><span>Cosplay our favorite couples or the ones that remind us of our relationship.</span></label>
 
-  <div class="scrapbook-page" id="dates">
+</div>
 
-    <h3 class="scrapbook-page-title">🎀 Dates to have</h3>
+<div class="completion-message" id="completion-message">We did it! Every little dream, one step at a time. ♡</div>
 
-    <p class="scrapbook-page-note">Six little ways to make ordinary days special.</p>
+<button class="scrapbook-back" onclick="backToScrapbook()">← Back to our scrapbook</button>
 
-    <div class="scrapbook-items">
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">📚</div>
-
-        <h4>Library date</h4>
-
-        <p>We each pick a book based on our own taste, exchange them, read the books chosen by each other and discuss them later.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">🐈</div>
-
-        <h4>Late night animal date</h4>
-
-        <p>Go for a late-night walk with cat and dog food, feed stray animals along the way and yap about everything and nothing.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">🦄</div>
-
-        <h4>My Little Pony night</h4>
-
-        <p>Cuddle together and watch our favorite show, because obviously it deserves its own date.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">🎨</div>
-
-        <h4>Paint each other</h4>
-
-        <p>Each of us draws or paints the other based on her own perspective, how she sees her and how she feels about her.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">🧺</div>
-
-        <h4>Craft picnic</h4>
-
-        <p>A picnic with papers, clay and lots of little supplies to make crafts together.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">🔐</div>
-
-        <h4>Escape room date</h4>
-
-        <p>Work together to solve puzzles, figure out the clues and escape the room.</p>
-
-      </div>
-
-    </div>
-
-    <button class="scrapbook-back" onclick="backToScrapbook()">← Back to our scrapbook</button>
-
-  </div>
-
-  <!-- THINGS TO EXPERIENCE -->
-
-  <div class="scrapbook-page" id="experiences">
-
-    <h3 class="scrapbook-page-title">🧸 Things to experience</h3>
-
-    <p class="scrapbook-page-note">Little experiences that would feel different together.</p>
-
-    <div class="scrapbook-items">
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">👀</div>
-
-        <h4>Meet for the first time</h4>
-
-        <p>Pretend not to know each other and meet again for the very first time.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">👗</div>
-
-        <h4>Thrift & style</h4>
-
-        <p>Thrift clothes from vintage stores or jotia, then style each other using our finds.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">🎙️</div>
-
-        <h4>Secret podcast</h4>
-
-        <p>Record our own little secret podcast together.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">🧸</div>
-
-        <h4>Chest-to-chest cuddles</h4>
-
-        <p>Cuddle chest to chest while sleeping, with me softly scratching your back as I hold you.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">💄</div>
-
-        <h4>Makeup date</h4>
-
-        <p>I sit on your lap and do your makeup for you.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">🪁</div>
-
-        <h4>Childhood together</h4>
-
-        <p>Do a personal childhood activity we used to enjoy alone as kids, but together this time.</p>
-
-      </div>
-
-    </div>
-
-    <button class="scrapbook-back" onclick="backToScrapbook()">← Back to our scrapbook</button>
-
-  </div>
-
-  <!-- LITTLE DREAMS -->
-
-  <div class="scrapbook-page" id="dreams">
-
-    <h3 class="scrapbook-page-title">☁️ Little dreams</h3>
-
-    <p class="scrapbook-page-note">Some dreams are worth growing old for.</p>
-
-    <div class="scrapbook-items">
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">🏡</div>
-
-        <h4>Our own home</h4>
-
-        <p>Move out together and build a little home of our own.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">💍</div>
-
-        <h4>Our secret marriage</h4>
-
-        <p>Get married in a country where same-sex marriage is legally supported.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">🐕</div>
-
-        <h4>Our little zoo</h4>
-
-        <p>Adopt three dogs and three cats and give them all the love they deserve.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">💜</div>
-
-        <h4>BTS together</h4>
-
-        <p>Attend a real-life BTS concert together.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">🏮</div>
-
-        <h4>Sky lantern festival</h4>
-
-        <p>Make a little wish together while watching lanterns fly into the night sky.</p>
-
-      </div>
-
-      <div class="scrapbook-item">
-
-        <div class="scrapbook-item-visual">👵🏻</div>
-
-        <h4>Growing old together</h4>
-
-        <p>Grow old together, still choosing each other every single day.</p>
-
-      </div>
-
-    </div>
-
-    <button class="scrapbook-back" onclick="backToScrapbook()">← Back to our scrapbook</button>
-
-  </div>
-
-  <!-- OUR SOMEDAY LIST -->
-
-  <div class="scrapbook-page" id="list">
-
-    <h3 class="scrapbook-page-title">♡ Our someday list</h3>
-
-    <p class="scrapbook-page-note">Little things we want to make happen together.</p>
-
-    <div class="progress-area">
-
-      <div class="progress-text">
-
-        <span id="progress-count">0</span> / 6 little adventures completed ♡
-
-      </div>
-
-      <div class="progress-track">
-
-        <div class="progress-fill" id="progress-fill"></div>
-
-      </div>
-
-    </div>
-
-    <div class="checklist">
-
-      <label class="check-item">
-
-        <input type="checkbox" class="dream-check" data-id="1">
-
-        <span>Have a spontaneous adventure.</span>
-
-      </label>
-
-      <label class="check-item">
-
-        <input type="checkbox" class="dream-check" data-id="2">
-
-        <span>Learn about each other's interests so we can enjoy them together.</span>
-
-      </label>
-
-      <label class="check-item">
-
-        <input type="checkbox" class="dream-check" data-id="3">
-
-        <span>Have a mutual, oddly specific personality map about each other.</span>
-
-      </label>
-
-      <label class="check-item">
-
-        <input type="checkbox" class="dream-check" data-id="4">
-
-        <span>Go on a date before the end of 2027.</span>
-
-      </label>
-
-      <label class="check-item">
-
-        <input type="checkbox" class="dream-check" data-id="5">
-
-        <span>Lock in at the gym to be strong enough to recreate the reel you sent me earlier.</span>
-
-      </label>
-
-      <label class="check-item">
-
-        <input type="checkbox" class="dream-check" data-id="6">
-
-        <span>Cosplay our favorite couples or the ones that remind us of our relationship.</span>
-
-      </label>
-
-    </div>
-
-    <div class="completion-message" id="completion-message">
-
-      We did it! Every little dream, one step at a time. ♡
-
-    </div>
-
-    <button class="scrapbook-back" onclick="backToScrapbook()">← Back to our scrapbook</button>
-
-  </div>
+</div>
 
 </section>
 
-<!-- LOVE NOTES -->
-
 <section class="card" id="letters">
 
-  <div class="section-heading">
+<div class="section-heading"><h2>♡ A Little Love Note ♡</h2><p>Something I hope you never forget.</p></div>
 
-    <h2>♡ A Little Love Note ♡</h2>
+<div class="letter">
 
-    <p>Something I hope you never forget.</p>
+My dearest Clover,<br><br>
 
-  </div>
+If I could give you one thing, it would be the ability to see yourself through my eyes. Maybe then you'd understand just how special you are to me.
 
-  <div class="letter">
+<br><br>
 
-    My dearest Clover,
+You're my favorite little coincidence, my sweetest thought, and a person I never want to stop discovering.
 
-    <br><br>
+<div class="signature">Forever your Angel ♡</div>
 
-    If I could give you one thing,
-
-    it would be the ability to see yourself
-
-    through my eyes.
-
-    Maybe then you'd understand
-
-    just how special you are to me.
-
-    <br><br>
-
-    You're my favorite little coincidence,
-
-    my sweetest thought,
-
-    and a person I never want to stop discovering.
-
-    <div class="signature">Forever your Angel ♡</div>
-
-  </div>
+</div>
 
 </section>
 
 <div class="decor">୨୧ ♡ 🍀 ♡ ୨୧</div>
 
-<!-- FOOTER -->
-
-<footer>
-
-  <div class="footer-heart">🪽 ♡ 🍀</div>
-
-  made with love, from your angel to her clover.
-
-  <br>
-
-  our little universe, always and forever.
-
-</footer>
+<footer><div class="footer-heart">🪽 ♡ 🍀</div>made with love, from your angel to her clover.<br>our little universe, always and forever.</footer>
 
 </main>
 
 <script>
 
-/* HOME SECRET */
+function openSecret(){document.getElementById("secret").classList.toggle("show")}
 
-function openSecret() {
+function openScrapbookPage(pageId){
 
-  const message = document.getElementById("secret");
+document.querySelectorAll(".scrapbook-page").forEach(page=>page.classList.remove("active"));
 
-  message.classList.toggle("show");
+document.querySelector(".scrapbook-cover").style.display="none";
 
-}
+document.querySelector(".scrapbook-tabs").style.display="none";
 
-/* SCRAPBOOK NAVIGATION */
+const selectedPage=document.getElementById(pageId);
 
-function openScrapbookPage(pageId) {
-
-  document.querySelectorAll(".scrapbook-page").forEach(page => {
-
-    page.classList.remove("active");
-
-  });
-
-  document.querySelector(".scrapbook-cover").style.display = "none";
-
-  document.querySelector(".scrapbook-tabs").style.display = "none";
-
-  const selectedPage = document.getElementById(pageId);
-
-  if (selectedPage) {
-
-    selectedPage.classList.add("active");
-
-  }
+if(selectedPage)selectedPage.classList.add("active");
 
 }
 
-function backToScrapbook() {
+function backToScrapbook(){
 
-  document.querySelectorAll(".scrapbook-page").forEach(page => {
+document.querySelectorAll(".scrapbook-page").forEach(page=>page.classList.remove("active"));
 
-    page.classList.remove("active");
+document.querySelector(".scrapbook-cover").style.display="block";
 
-  });
-
-  document.querySelector(".scrapbook-cover").style.display = "block";
-
-  document.querySelector(".scrapbook-tabs").style.display = "grid";
+document.querySelector(".scrapbook-tabs").style.display="grid";
 
 }
 
-/* SOMEDAY CHECKLIST */
+const dreamChecks=document.querySelectorAll(".dream-check");
 
-const dreamChecks = document.querySelectorAll(".dream-check");
+function updateProgress(){
 
-function updateProgress() {
+const completed=document.querySelectorAll(".dream-check:checked").length;
 
-  const completed = document.querySelectorAll(".dream-check:checked").length;
+const total=dreamChecks.length;
 
-  const total = dreamChecks.length;
+document.getElementById("progress-count").textContent=completed;
 
-  const percentage = (completed / total) * 100;
+document.getElementById("progress-fill").style.width=(completed/total*100)+"%";
 
-  document.getElementById("progress-count").textContent = completed;
-
-  document.getElementById("progress-fill").style.width = percentage + "%";
-
-  document.getElementById("completion-message").classList.toggle(
-
-    "show",
-
-    completed === total
-
-  );
+document.getElementById("completion-message").classList.toggle("show",completed===total);
 
 }
 
-/* SAVE CHECKBOXES */
+dreamChecks.forEach(check=>{
 
-dreamChecks.forEach(check => {
+const saved=localStorage.getItem("angelCloverDream"+check.dataset.id);
 
-  const saved = localStorage.getItem("angelCloverDream" + check.dataset.id);
+check.checked=saved==="true";
 
-  check.checked = saved === "true";
+check.addEventListener("change",()=>{
 
-  check.addEventListener("change", () => {
+localStorage.setItem("angelCloverDream"+check.dataset.id,check.checked);
 
-    localStorage.setItem(
+check.closest(".check-item").classList.toggle("done",check.checked);
 
-      "angelCloverDream" + check.dataset.id,
+updateProgress();
 
-      check.checked
+});
 
-    );
-
-    check.closest(".check-item").classList.toggle("done", check.checked);
-
-    updateProgress();
-
-  });
-
-  check.closest(".check-item").classList.toggle("done", check.checked);
+check.closest(".check-item").classList.toggle("done",check.checked);
 
 });
 
