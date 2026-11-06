@@ -6,175 +6,935 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Angel to Clover ♡</title>
+<meta name="theme-color" content="#fff5f8">
 
-  <style>
+<title>Angel to Clover ♡</title>
 
-    * { box-sizing: border-box; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    body {
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 
-      margin: 0;
+<style>
 
-      background: #fff5fa;
+:root {
 
-      color: #76536f;
+  --pink: #f8e3eb;
 
-      font-family: Georgia, serif;
+  --pink-dark: #d99db8;
 
-      text-align: center;
+  --lilac: #e9def4;
 
-    }
+  --purple: #a88bb5;
 
-    .page {
+  --cream: #fffaf4;
 
-      max-width: 650px;
+  --sage: #dce9d8;
 
-      margin: auto;
+  --text: #795c70;
 
-      padding: 25px 20px;
+  --muted: #ae91a3;
 
-    }
+  --white: #fffdfd;
 
-    .decor {
+}
 
-      color: #bd91c9;
+* {
 
-      letter-spacing: 8px;
+  box-sizing: border-box;
 
-      font-size: 20px;
+  margin: 0;
 
-    }
+  padding: 0;
 
-    .card {
+}
 
-      background: #fffafd;
+html {
 
-      border: 1px solid #ead6e9;
+  scroll-behavior: smooth;
 
-      border-radius: 22px;
+}
 
-      padding: 35px 20px;
+body {
 
-      margin: 25px 0;
+  background:
 
-      box-shadow: 0 5px 20px #e8d6e555;
+    radial-gradient(ellipse at 10% 10%, #f8e7f0 0, transparent 35%),
 
-    }
+    radial-gradient(ellipse at 90% 50%, #eee5f7 0, transparent 35%),
 
-    h1 {
+    var(--cream);
 
-      font-size: 38px;
+  color: var(--text);
 
-      color: #aa7ca9;
+  font-family: 'Quicksand', sans-serif;
 
-      font-style: italic;
+  overflow-x: hidden;
 
-    }
+}
 
-    h2 { color: #ad83b5; }
+body::before {
 
-    p { line-height: 1.8; }
+  content: "♡";
 
-    button {
+  position: fixed;
 
-      background: #e8d7ef;
+  top: 12%;
 
-      color: #76536f;
+  left: 4%;
 
-      border: 1px solid #d6badd;
+  color: #e7c6d7;
 
-      border-radius: 30px;
+  font-size: 35px;
 
-      padding: 12px 22px;
+  opacity: .6;
 
-      font-size: 15px;
+  pointer-events: none;
 
-      cursor: pointer;
+}
 
-    }
+body::after {
 
-    .hidden { display: none; }
+  content: "✧";
 
-    .flower { font-size: 42px; }
+  position: fixed;
 
-    footer {
+  bottom: 12%;
 
-      padding: 25px;
+  right: 5%;
 
-      font-size: 12px;
+  color: #cbb5dc;
 
-      color: #b28da9;
+  font-size: 38px;
 
-    }
+  opacity: .6;
 
-  </style>
+  pointer-events: none;
+
+}
+
+a {
+
+  color: inherit;
+
+  text-decoration: none;
+
+}
+
+.page {
+
+  width: min(100% - 30px, 760px);
+
+  margin: auto;
+
+  padding: 25px 0 35px;
+
+}
+
+.top-note {
+
+  text-align: center;
+
+  font-family: 'Caveat', cursive;
+
+  color: var(--muted);
+
+  font-size: 19px;
+
+  margin-bottom: 15px;
+
+}
+
+nav {
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin: 20px 0 30px;
+
+}
+
+nav a {
+
+  background: #fffafd;
+
+  border: 1px solid #efdae7;
+
+  border-radius: 25px;
+
+  padding: 8px 13px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  transition: .25s;
+
+}
+
+nav a:hover {
+
+  background: var(--pink);
+
+  transform: translateY(-3px);
+
+}
+
+.card {
+
+  background: rgba(255,253,253,.88);
+
+  border: 1px solid #efdae7;
+
+  border-radius: 25px;
+
+  padding: 28px 22px;
+
+  margin: 22px 0;
+
+  box-shadow: 0 8px 25px rgba(174,130,157,.09);
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+.hero {
+
+  text-align: center;
+
+  padding: 45px 22px;
+
+  background:
+
+    linear-gradient(145deg, #fff9fc, #f6eafa);
+
+}
+
+.hero::before {
+
+  content: "୨୧";
+
+  position: absolute;
+
+  top: 15px;
+
+  right: 20px;
+
+  color: #d7b2cf;
+
+  font-size: 23px;
+
+}
+
+.hero::after {
+
+  content: "✧";
+
+  position: absolute;
+
+  bottom: 12px;
+
+  left: 20px;
+
+  color: #c6add7;
+
+  font-size: 26px;
+
+}
+
+.wing {
+
+  font-size: 48px;
+
+  margin-bottom: 12px;
+
+}
+
+.eyebrow {
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  font-weight: 700;
+
+  color: var(--muted);
+
+  text-transform: uppercase;
+
+}
+
+h1 {
+
+  font-family: 'DM Serif Display', serif;
+
+  font-size: clamp(38px, 9vw, 57px);
+
+  color: #b17e9f;
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  margin: 12px 0;
+
+}
+
+.subtitle {
+
+  font-family: 'Caveat', cursive;
+
+  font-size: 23px;
+
+  color: #ae8bb1;
+
+}
+
+.intro {
+
+  font-size: 13px;
+
+  line-height: 2;
+
+  margin: 15px auto 22px;
+
+  max-width: 390px;
+
+}
+
+.button {
+
+  display: inline-block;
+
+  background: linear-gradient(120deg, #f5dce8, #e8ddf4);
+
+  border: 1px solid #e8cfe1;
+
+  border-radius: 30px;
+
+  color: #795c70;
+
+  padding: 12px 21px;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: .25s;
+
+}
+
+.button:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 5px 15px #e5c9dc;
+
+}
+
+.secret {
+
+  display: none;
+
+  margin: 22px auto 0;
+
+  padding: 18px;
+
+  background: #fff6fa;
+
+  border: 1px dashed #ddb8cf;
+
+  border-radius: 17px;
+
+  max-width: 400px;
+
+  font-family: 'Caveat', cursive;
+
+  font-size: 23px;
+
+  line-height: 1.7;
+
+}
+
+.secret.show {
+
+  display: block;
+
+  animation: appear .5s ease;
+
+}
+
+@keyframes appear {
+
+  from { opacity: 0; transform: translateY(10px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+.section-heading {
+
+  text-align: center;
+
+  margin-bottom: 18px;
+
+}
+
+.section-heading h2 {
+
+  font-family: 'DM Serif Display', serif;
+
+  font-size: 27px;
+
+  font-weight: 400;
+
+  color: #ad83b2;
+
+}
+
+.section-heading p {
+
+  font-size: 12px;
+
+  margin-top: 7px;
+
+  color: var(--muted);
+
+  line-height: 1.7;
+
+}
+
+.decor {
+
+  text-align: center;
+
+  color: #c39fbd;
+
+  letter-spacing: 8px;
+
+  font-size: 17px;
+
+  margin: 15px 0;
+
+}
+
+.memory-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 13px;
+
+}
+
+.memory {
+
+  background: #fff7fa;
+
+  border: 1px solid #f0dce8;
+
+  border-radius: 17px;
+
+  padding: 17px 10px;
+
+  text-align: center;
+
+  min-height: 115px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 7px;
+
+}
+
+.memory span {
+
+  font-size: 27px;
+
+}
+
+.memory strong {
+
+  font-size: 12px;
+
+}
+
+.memory small {
+
+  font-size: 10px;
+
+  color: var(--muted);
+
+}
+
+.song {
+
+  background: #faf5fc;
+
+  border-radius: 15px;
+
+  border: 1px solid #ecdfef;
+
+  padding: 14px;
+
+  margin: 10px 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+}
+
+.song-icon {
+
+  background: #f0e2f1;
+
+  border-radius: 12px;
+
+  width: 43px;
+
+  height: 43px;
+
+  display: grid;
+
+  place-items: center;
+
+  font-size: 20px;
+
+}
+
+.song strong {
+
+  font-size: 12px;
+
+}
+
+.song small {
+
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+  margin-top: 4px;
+
+}
+
+.dream {
+
+  padding: 13px;
+
+  background: #fff7fa;
+
+  border-radius: 13px;
+
+  margin: 10px 0;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  border-left: 3px solid #e7bfd3;
+
+}
+
+.dream:nth-child(even) {
+
+  border-left-color: #d8c6e9;
+
+}
+
+.letter {
+
+  background: #fff8f5;
+
+  border: 1px dashed #dfc1d1;
+
+  border-radius: 18px;
+
+  padding: 22px;
+
+  font-family: 'Caveat', cursive;
+
+  font-size: 21px;
+
+  line-height: 1.8;
+
+  text-align: left;
+
+}
+
+.letter .signature {
+
+  text-align: right;
+
+  color: #b17e9f;
+
+  margin-top: 15px;
+
+}
+
+footer {
+
+  text-align: center;
+
+  padding: 25px 10px;
+
+  color: #b08da7;
+
+  font-size: 11px;
+
+  line-height: 2;
+
+}
+
+.footer-heart {
+
+  font-size: 22px;
+
+  margin-bottom: 5px;
+
+}
+
+@media (max-width: 420px) {
+
+  .card {
+
+    padding: 23px 16px;
+
+  }
+
+  nav {
+
+    gap: 6px;
+
+  }
+
+  nav a {
+
+    padding: 8px 10px;
+
+    font-size: 10px;
+
+  }
+
+  .memory-grid {
+
+    gap: 9px;
+
+  }
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-  <main class="page">
+<main class="page">
 
-    <div class="decor">୨୧ ♡ 🍀 ♡ ୨୧</div>
+  <div class="top-note">
 
-    <section class="card">
+    a little place made with love ♡
 
-      <div class="flower">🪽🍀</div>
+  </div>
 
-      <p>A LITTLE WORLD MADE BY ANGEL</p>
+  <div class="decor">୨୧ ♡ 🍀 ♡ ୨୧</div>
 
-      <h1>Angel to Clover</h1>
+  <nav>
 
-      <p>Somewhere, it's always you.</p>
+    <a href="#home">Home</a>
 
-      <p>Welcome to our little corner of the universe, my clover.</p>
+    <a href="#archive">Aya archive</a>
 
-      <button onclick="document.getElementById('letter').classList.toggle('hidden')">
+    <a href="#music">Soundtrack</a>
 
-        Open your little surprise ♡
+    <a href="#someday">Someday</a>
 
-      </button>
+    <a href="#letters">Love notes</a>
 
-      <p id="letter" class="hidden">
+  </nav>
 
-        To my beautiful Clover, I'm so lucky that my little world found you. I love you, baby. ♡
+  <!-- HOME -->
 
-      </p>
+  <section class="card hero" id="home">
 
-    </section>
+    <div class="wing">🪽🍀</div>
 
-    <section class="card">
+    <p class="eyebrow">A LITTLE WORLD MADE BY ANGEL</p>
 
-      <h2>♡ The Aya archive ♡</h2>
+    <h1>Angel to Clover</h1>
+
+    <p class="subtitle">Somewhere, it's always you.</p>
+
+    <p class="intro">
+
+      Welcome to our little corner of the universe,
+
+      my beautiful Clover.
+
+      A place for memories, little dreams,
+
+      silly moments and everything that reminds me of you.
+
+    </p>
+
+    <button class="button" onclick="openSecret()">
+
+      Open your little surprise ♡
+
+    </button>
+
+    <div class="secret" id="secret">
+
+      To my beautiful Clover,<br>
+
+      I'm so lucky that my little world found you.
+
+      You make ordinary days feel special.
+
+      I love you, baby. ♡
+
+    </div>
+
+  </section>
+
+  <div class="decor">✧ ˚ ୨୧ ˚ ✧</div>
+
+  <!-- AYA ARCHIVE -->
+
+  <section class="card" id="archive">
+
+    <div class="section-heading">
+
+      <h2>♡ The Aya Archive ♡</h2>
 
       <p>A little collection of everything that makes you, you.</p>
 
-    </section>
+    </div>
 
-    <section class="card">
+    <div class="memory-grid">
 
-      <h2>♡ Our soundtrack ♡</h2>
+      <div class="memory">
+
+        <span>📷</span>
+
+        <strong>Little moments</strong>
+
+        <small>Memories worth keeping</small>
+
+      </div>
+
+      <div class="memory">
+
+        <span>🧸</span>
+
+        <strong>Things I adore</strong>
+
+        <small>All the little details</small>
+
+      </div>
+
+      <div class="memory">
+
+        <span>🌷</span>
+
+        <strong>Your pretty soul</strong>
+
+        <small>My favorite person</small>
+
+      </div>
+
+      <div class="memory">
+
+        <span>🐇</span>
+
+        <strong>Our little world</strong>
+
+        <small>Just us, being us</small>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SOUNDTRACK -->
+
+  <section class="card" id="music">
+
+    <div class="section-heading">
+
+      <h2>♡ Our Soundtrack ♡</h2>
 
       <p>Every song has a little piece of us in it.</p>
 
-    </section>
+    </div>
 
-    <section class="card">
+    <div class="song">
 
-      <h2>♡ Our someday ♡</h2>
+      <div class="song-icon">🎧</div>
+
+      <div>
+
+        <strong>Our favorite songs</strong>
+
+        <small>A soundtrack made for two.</small>
+
+      </div>
+
+    </div>
+
+    <div class="song">
+
+      <div class="song-icon">🎀</div>
+
+      <div>
+
+        <strong>Songs that remind me of you</strong>
+
+        <small>Because somehow, everything does.</small>
+
+      </div>
+
+    </div>
+
+    <div class="song">
+
+      <div class="song-icon">💗</div>
+
+      <div>
+
+        <strong>Our little playlist</strong>
+
+        <small>To be played on repeat.</small>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SOMEDAY -->
+
+  <section class="card" id="someday">
+
+    <div class="section-heading">
+
+      <h2>♡ Our Someday ♡</h2>
 
       <p>All the little things I can't wait to experience with you.</p>
 
-    </section>
+    </div>
 
-    <footer>made with love, from your angel to her clover ♡</footer>
+    <div class="dream">🌷 Going on cute little dates together.</div>
 
-  </main>
+    <div class="dream">📷 Taking lots of pictures and keeping them forever.</div>
+
+    <div class="dream">🧁 Baking something sweet together.</div>
+
+    <div class="dream">🌙 Spending a quiet evening just talking.</div>
+
+    <div class="dream">🐇 Making memories we'll laugh about years later.</div>
+
+  </section>
+
+  <!-- LOVE NOTES -->
+
+  <section class="card" id="letters">
+
+    <div class="section-heading">
+
+      <h2>♡ A Little Love Note ♡</h2>
+
+      <p>Something I hope you never forget.</p>
+
+    </div>
+
+    <div class="letter">
+
+      My dearest Clover,
+
+      <br><br>
+
+      If I could give you one thing,
+
+      it would be the ability to see yourself
+
+      through my eyes.
+
+      Maybe then you'd understand
+
+      just how special you are to me.
+
+      <br><br>
+
+      You're my favorite little coincidence,
+
+      my sweetest thought,
+
+      and a person I never want to stop discovering.
+
+      <div class="signature">
+
+        Forever your Angel ♡
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="decor">୨୧ ♡ 🍀 ♡ ୨୧</div>
+
+  <footer>
+
+    <div class="footer-heart">🪽 ♡ 🍀</div>
+
+    made with love, from your angel to her clover.
+
+    <br>
+
+    our little universe, always and forever.
+
+  </footer>
+
+</main>
+
+<script>
+
+function openSecret() {
+
+  const message = document.getElementById("secret");
+
+  message.classList.toggle("show");
+
+}
+
+</script>
 
 </body>
 
